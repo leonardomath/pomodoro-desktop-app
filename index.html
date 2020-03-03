@@ -1,0 +1,40 @@
+<html>
+<head>
+  <title>Pomodoro</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<h1>Pomodoro</h1>
+<h2 id="timerPomodoro">24:59</h2>
+<button id="bntPomodoro" onclick="startPomodoro()">Iniciar</button>
+
+<script>
+  let timerMinute = 24
+  let timerSeconds = 59
+  let timerText = document.querySelector('#timerPomodoro')
+  let bntPomodoro = document.querySelector('#btnPomodoro')
+
+  function startPomodoro() {
+
+    timerMinute = 24
+    timerSeconds = 59
+
+    let interval = setInterval(() => {
+      timerSeconds -= 1
+      timerText.innerHTML = timerMinute + ':' + timerSeconds
+      if(timerSeconds < 1) {
+        timerSeconds = 59
+        timerMinute -= 1
+      }
+      if(timerMinute === -1) {
+        let myNotification = new Notification('Pomodoro Finalizado!', {
+          body: 'Tempo: 25 min'
+        })
+        clearInterval(interval)
+      }
+    },1000)
+  }
+
+</script>
+</body>
+</html>
