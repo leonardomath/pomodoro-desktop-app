@@ -46,3 +46,10 @@ button {
 button:hover {
   background: rgb(1, 65, 23);
 }
+
+#btnReset {
+  background: #F2E205;
+}
+#btnReset:hover {
+  background: rgb(158, 148, 4);
+}

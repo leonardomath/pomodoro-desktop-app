@@ -7,12 +7,14 @@
 <h1>Pomodoro</h1>
 <h2 id="timerPomodoro">24:59</h2>
 <button id="bntPomodoro" onclick="startPomodoro()">Iniciar</button>
+<button id="rest5minutes" onclick="rest5minutes()">Descansar</button>
 <button id="btnReset" onclick="resetPomodoro()">Reset</button>
 
 <script>
   let timerMinute = 24
   let timerSeconds = 59
   let timerText = document.querySelector('#timerPomodoro')
+  let bntRest5Minutes = document.querySelector('#rest5minutes')
   let bntPomodoro = document.querySelector('#bntPomodoro')
   let interval;
 
@@ -22,6 +24,7 @@
     timerSeconds = 59
 
     bntPomodoro.disabled = true
+    bntRest5Minutes.disabled = true
 
     interval = setInterval(() => {
       timerSeconds -= 1
@@ -41,10 +44,34 @@
 
   function resetPomodoro() {
     bntPomodoro.disabled = false
+    bntRest5Minutes.disabled = false
     timerMinute = 24
     timerSeconds = 59
     timerText.innerHTML = timerMinute + ':' + timerSeconds
     clearInterval(interval)
+  }
+
+  function rest5minutes() {
+    bntPomodoro.disabled = true
+    bntRest5Minutes.disabled = true
+    timerMinute = 4
+    timerSeconds = 59
+    timerText.innerHTML = timerMinute + ':' + timerSeconds
+
+    interval = setInterval(() => {
+      timerSeconds -= 1
+      timerText.innerHTML = timerMinute + ':' + timerSeconds
+      if(timerSeconds < 1) {
+        timerSeconds = 59
+        timerMinute -= 1
+      }
+      if(timerMinute === -1) {
+        let myNotification = new Notification('Descanso Finalizado!', {
+          body: 'Tempo: 5 min'
+        })
+        clearInterval(interval)
+      }
+    },1000)
   }
 
 </script>
