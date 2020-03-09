@@ -33,23 +33,14 @@ button {
   margin: 10px 0;
   width: 100px;
   height: 30px;
-  cursor: pointer;
   border: none;
-  background: #02732A;
-  color: #fff;
-  font-size: 16px;
-  border-radius: 5px;
-  transition: 0.9s;
-  font-weight: bold;
 }
 
-button:hover {
-  background: rgb(1, 65, 23);
+.green {
+  background:  #02732A !important;
 }
 
-#btnReset {
-  background: #F2E205;
-}
-#btnReset:hover {
-  background: rgb(158, 148, 4);
+
+.button {
+  margin: 3px 0;
 }

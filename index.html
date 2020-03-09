@@ -1,14 +1,15 @@
 <html>
 <head>
   <title>Pomodoro</title>
+  <link rel="stylesheet" href="./bulma.min.css">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 <h1>Pomodoro</h1>
 <h2 id="timerPomodoro">24:59</h2>
-<button id="bntPomodoro" onclick="startPomodoro()">Iniciar</button>
-<button id="rest5minutes" onclick="rest5minutes()">Descansar</button>
-<button id="btnReset" onclick="resetPomodoro()">Reset</button>
+<button class="button is-success green" id="bntPomodoro" onclick="startPomodoro()">Iniciar</button>
+<button class="button is-success green" id="rest5minutes" onclick="rest5minutes()">Descansar</button>
+<button class="button is-warning" id="btnReset" onclick="resetPomodoro()">Reset</button>
 
 <script>
   let timerMinute = 24

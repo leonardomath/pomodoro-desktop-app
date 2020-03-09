@@ -8,5 +8,8 @@
   },
   "scripts": {
     "start": "electron ."
+  },
+  "dependencies": {
+    "bulma": "^0.8.0"
   }
 }
